@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?8jte9r');
+  src:  url('fonts/icomoon.eot?8jte9r#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?8jte9r') format('truetype'),
+    url('fonts/icomoon.woff?8jte9r') format('woff'),
+    url('fonts/icomoon.svg?8jte9r#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before {
+  content: "\e935";
+}
+.icon-check-mark:before {
+  content: "\e934";
+}
+.icon-reload:before {
+  content: "\e90e";
+}
+.icon-send:before {
+  content: "\e90a";
+}
+.icon-sending:before {
+  content: "\e90d";
+}
+.icon-launch:before {
+  content: "\e908";
+}
+.icon-phone:before {
+  content: "\e903";
+}
+.icon-mail:before {
+  content: "\e907";
+}
+.icon-arrow-left:before {
+  content: "\e932";
+}
+.icon-arrow-right:before {
+  content: "\e933";
+}
+.icon-pwa .path1:before {
+  content: "\e92f";
+  color: rgb(0, 0, 0);
+}
+.icon-pwa .path2:before {
+  content: "\e930";
+  margin-left: -1.3330078125em;
+  color: rgb(90, 15, 200);
+}
+.icon-pwa .path3:before {
+  content: "\e931";
+  margin-left: -1.3330078125em;
+  color: rgb(0, 0, 0);
+}
+.icon-php .path1:before {
+  content: "\e919";
+  color: rgb(143, 158, 209);
+}
+.icon-php .path2:before {
+  content: "\e91a";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-php .path3:before {
+  content: "\e91b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-php .path4:before {
+  content: "\e91c";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-woocommerce .path1:before {
+  content: "\e91d";
+  color: rgb(155, 92, 143);
+}
+.icon-woocommerce .path2:before {
+  content: "\e91e";
+  margin-left: -1.3330078125em;
+  color: rgb(255, 255, 255);
+}
+.icon-ionic:before {
+  content: "\e91f";
+  color: #4e8ef7;
+}
+.icon-laravel:before {
+  content: "\e920";
+  color: #f35045;
+}
+.icon-nodejs .path1:before {
+  content: "\e921";
+  color: rgb(59, 135, 57);
+}
+.icon-nodejs .path2:before {
+  content: "\e922";
+  margin-left: -1em;
+  color: rgb(51, 51, 51);
+}
+.icon-nodejs .path3:before {
+  content: "\e923";
+  margin-left: -1em;
+  color: rgb(102, 160, 96);
+}
+.icon-nodejs .path4:before {
+  content: "\e924";
+  margin-left: -1em;
+  color: rgb(51, 51, 51);
+}
+.icon-nodejs .path5:before {
+  content: "\e925";
+  margin-left: -1em;
+  color: rgb(109, 167, 93);
+}
+.icon-nodejs .path6:before {
+  content: "\e926";
+  margin-left: -1em;
+  color: rgb(85, 163, 68);
+}
+.icon-nodejs .path7:before {
+  content: "\e927";
+  margin-left: -1em;
+  color: rgb(99, 157, 87);
+}
+.icon-nodejs .path8:before {
+  content: "\e928";
+  margin-left: -1em;
+  color: rgb(51, 51, 51);
+}
+.icon-nodejs .path9:before {
+  content: "\e929";
+  margin-left: -1em;
+  color: rgb(102, 160, 96);
+}
+.icon-nodejs .path10:before {
+  content: "\e92a";
+  margin-left: -1em;
+  color: rgb(102, 160, 96);
+}
+.icon-angular .path1:before {
+  content: "\e92b";
+  color: rgb(226, 50, 55);
+}
+.icon-angular .path2:before {
+  content: "\e92c";
+  margin-left: -0.94140625em;
+  color: rgb(181, 46, 49);
+}
+.icon-angular .path3:before {
+  content: "\e92d";
+  margin-left: -0.94140625em;
+  color: rgb(255, 255, 255);
+}
+.icon-wordpress:before {
+  content: "\e92e";
+  color: #00769d;
+}
+.icon-new:before {
+  content: "\e917";
+}
+.icon-coming-soon:before {
+  content: "\e918";
+}
+.icon-shut-down:before {
+  content: "\e916";
+}
+.icon-repair:before {
+  content: "\e915";
+}
+.icon-link:before {
+  content: "\e914";
+}
+.icon-server:before {
+  content: "\e911";
+}
+.icon-web-coding:before {
+  content: "\e912";
+}
+.icon-smartphone:before {
+  content: "\e913";
+}
+.icon-moon:before {
+  content: "\e900";
+}
+.icon-sun:before {
+  content: "\e901";
+}
+.icon-google-plus:before {
+  content: "\e902";
+}
+.icon-reverbnation:before {
+  content: "\e904";
+}
+.icon-facebook:before {
+  content: "\e905";
+}
+.icon-instagram:before {
+  content: "\e906";
+}
+.icon-twitter:before {
+  content: "\e909";
+}
+.icon-skype:before {
+  content: "\e90b";
+}
+.icon-linkedin:before {
+  content: "\e90c";
+}
+.icon-cancel:before {
+  content: "\e90f";
+}
+.icon-ellipsis:before {
+  content: "\e910";
+}

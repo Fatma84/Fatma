@@ -1,0 +1,41 @@
+<div [class]="'project card project-status-' + project.status">
+  <div class="project-img">
+    <img [src]="'assets/imgs/companies/' + project.logoURL" [alt]="project.title" [title]="project.title" />
+  </div>
+  <p class="project-description">{{ project.description }}</p>
+  <ng-container *ngIf="project.status === 'production'">
+    <span class="project-status-circle" title="Production Mode">
+      <span class="icon-launch"></span>
+    </span>
+    <a href="https://{{ project.link }}" target="_blank" class="stretched-link">
+      {{ project.link }}
+    </a>
+  </ng-container>
+
+  <ng-container *ngIf="project.status === 'shutdown'">
+    <span class="project-status-circle" title="Shutdown Mode">
+      <i class="icon-shut-down reset-icon"></i>
+    </span>
+    <p class="project-status">Shutdown In {{ project.date | date: "dd/MM/yyyy" }}</p>
+  </ng-container>
+
+  <ng-container *ngIf="project.status === 'upcoming'">
+    <span class="project-status-circle" title="Upcoming Mode">
+      <i class="icon-new reset-icon"></i>
+    </span>
+    <p class="project-status">Upcoming in {{ project.date | date: "dd/MM/yyyy" }}</p>
+  </ng-container>
+
+  <ng-container *ngIf="project.status === 'development'">
+    <span class="project-status-circle" title="Development Mode">
+      <i class="icon-repair reset-icon"></i>
+    </span>
+    <p class="project-status">Working on it until {{ project.date | date: "dd/MM/yyyy" }}</p>
+  </ng-container>
+
+  <ul class="project-tools">
+    <li class="pe-2" *ngFor="let framework of project.frameworks" [title]="frameworks[framework].title">
+      <i [class]="'reset-icon icon-' + frameworks[framework].icon" [innerHTML]="frameworks[framework].innerHTML"></i>
+    </li>
+  </ul>
+</div>

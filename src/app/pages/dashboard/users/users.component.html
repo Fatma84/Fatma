@@ -1,0 +1,15 @@
+<section class="users">
+  <div class="row">
+    <div class="col-md-4 col-sm-6" *ngFor="let user of users">
+      <div class="user-profile card">
+        <div class="user-image">
+          <img [src]="user.photoURL" [alt]="user.displayName" [title]="user.displayName" class="img-fluid" />
+        </div>
+        <div>
+          <h3 class="m-0">{{ user.displayName }}</h3>
+          <p class="m-0">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

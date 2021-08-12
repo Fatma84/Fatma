@@ -1,0 +1,61 @@
+.welcome {
+  height: 100vh;
+  min-height: 650px;
+  padding: 30px 15px;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 450px) {
+    padding-top: 100px;
+  }
+
+  &_inner {
+    text-align: center;
+  }
+}
+.welcome_inner {
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+
+}
+.fatma {
+  border-radius: 50%;
+  width: 300px;
+}
+
+.name {font-weight: bold;}
+
+.data {
+  align-items: flex-start;
+}
+
+.progress {
+  height: 6px;
+}
+
+.progress-bar {
+  background: lightpink;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem !important;
+}
+
+.text-danger , .text-success{
+  color: #ff8da1 !important;
+  font-weight: 500 !important;
+}
+
+[class^=icon-] {
+  color: #ff8da1 !important;
+}

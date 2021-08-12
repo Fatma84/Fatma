@@ -1,0 +1,57 @@
+.company {
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--nav-shadow);
+  border-radius: 12px;
+  border: 0;
+  max-width: 350px;
+  margin: auto;
+  margin-bottom: 20px;
+  .company-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    background-color: #fff;
+  }
+  img {
+    max-width: 210px;
+    margin: auto;
+  }
+  &:hover {
+    .company-link {
+      opacity: 0.95;
+    }
+  }
+  .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 100;
+    border-radius: 50%;
+    width: 25px;
+    padding: unset;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+      font-size: 15px;
+    }
+    &:hover {
+      background-color: var(--bs-danger);
+      i {
+        color: #fff;
+      }
+    }
+  }
+}

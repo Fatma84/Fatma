@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/variables";
+@import "./assets/scss/typography";
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/scss/global";
+
+@import "./assets/icomoon/style.css";
+
+
+.page-loaded .loading-spinner img {
+    width: 300px;
+    border-radius: 50%;
+}
+
+.adsbygoogle {
+    display: none;
+}

@@ -1,0 +1,30 @@
+.testimonial-item {
+  .testimonial-user-details {
+    flex: 0 0 150px;
+    text-align: center;
+    position: relative;
+    .testimonial-img {
+      max-width: 200px;
+      max-height: 200px;
+      border-radius: 50%;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .btn {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      padding: 5px;
+      padding-bottom: 2px;
+      span {
+        font-size: 15px;
+      }
+
+      &.btn-danger {
+        top: unset;
+        bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<!-- Modal -->
+<div class="modal fade" id="testimonialModal" tabindex="-1" aria-labelledby="testimonialModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex justify-content-between align-items-center border-0">
+          <div>
+            <img src="assets/imgs/logo/omar-logo.png" alt="omar logo" width="80px" />
+          </div>
+          <h2 class="text-center">Tell people about our time!</h2>
+          <button type="button" class="btn icon-cancel" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="testimonialForm" (ngSubmit)="onSendForm()" class="row say-hello-form" id="testimonialForm">
+          <div class="col-12">
+            <app-user-account></app-user-account>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="position" type="tel" class="form-control" formControlName="position" [class.is-invalid]="position.invalid && position.touched" placeholder="Sr. System Developers, Domain7" />
+              <label for="position">your position (not required) </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <textarea id="message" formControlName="message" style="min-height: 190px" class="form-control form-control-lg" [class.is-invalid]="message.invalid && message.touched" [class.is-valid]="message.valid" placeholder="tell me &#60;3"></textarea>
+              <label for="message" class="form-label"> Say it to the world &#60;3 </label>
+              <div class="invalid-feedback">hey! you have to say it</div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="submit" form="testimonialForm" [disabled]="testimonialForm.invalid" class="btn btn-secondary rounded-pill btn-lg px-5 d-flex align-items-center">
+          <span *ngIf="!isSending"> Say It</span>
+          <span *ngIf="isSending"> Flying...</span>
+          <i class="reset-icon ms-2" [class.icon-send]="!isSending" [class.icon-sending]="isSending"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

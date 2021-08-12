@@ -1,0 +1,25 @@
+<div class="company card">
+  <div class="inner">
+    <img [src]="'assets/imgs/companies/' + company.imageURL" [alt]="company.name" class="img-fluid" />
+    <a [href]="company.link" target="_blank" class="company-link">
+      <i class="icon-link"></i>
+    </a>
+    <ng-container *ngIf="(authService.user$ | async)?.uid === adminID">
+      <button
+        class="delete-btn btn-sm btn text-danger"
+        [disabled]="isDeleting === company.cid"
+        [swal]="{
+          title: 'Are you sure?',
+          html: 'Do you want to delete <strong class=\'text-danger\'>' + company.name + '</strong>?',
+          confirmButtonText: 'Delete',
+          confirmButtonColor: 'var(--bs-danger)',
+          showCancelButton: true
+        }"
+        (confirm)="deleteCompany(company.cid || '')"
+      >
+        <i class="icon-reload reset-icon rotating" *ngIf="isDeleting === company.cid"></i>
+        <i class="icon-cancel reset-icon" *ngIf="isDeleting !== company.cid"></i>
+      </button>
+    </ng-container>
+  </div>
+</div>

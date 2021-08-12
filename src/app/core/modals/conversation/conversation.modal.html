@@ -1,0 +1,68 @@
+<!-- Modal -->
+<div class="modal fade" id="conversationModal" tabindex="-1" aria-labelledby="conversationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex justify-content-between border-0">
+          <div>
+            <img src="assets/imgs/logo/omar-logo.png" alt="omar logo" width="80px" />
+          </div>
+          <h2 class="text-center">
+            Want to discuss a startup collaboration?
+            <br />
+            I'm most definitely game.
+          </h2>
+          <button type="button" class="btn icon-cancel" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="conversationForm" (ngSubmit)="onSendForm()" class="row say-hello-form" id="conversationForm">
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="name" type="text" class="form-control" [class.is-invalid]="name.invalid && name.touched" [class.is-valid]="name.valid" formControlName="name" placeholder="Name" [readOnly]="authService.user$ | async" />
+              <label for="name">Name</label>
+              <div class="invalid-feedback">What's your name?</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="email" type="email" class="form-control" [class.is-invalid]="email.invalid && email.touched" [class.is-valid]="email.valid" formControlName="email" placeholder="name@example.com" [readOnly]="authService.user$ | async" />
+              <label for="email">Email address</label>
+              <div class="invalid-feedback">Tell me your email so that I can reply to you</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="phone" type="tel" class="form-control" formControlName="phone" [class.is-invalid]="phone.invalid && phone.touched" [class.is-valid]="phone.valid" placeholder="+02 1557032911" placeholder="Mobile number" />
+              <label for="phone">Mobile Number</label>
+              <div class="invalid-feedback">give me a real number plz.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <select class="form-select" id="project" formControlName="project">
+                <option value="website-for-your-company">Website for your company</option>
+                <option value="ecommerce-Website">Ecommerce Website</option>
+                <option value="angular/ionic-app">Angular/Ionic App</option>
+                <option value="nodejs-server">Nodejs Server</option>
+              </select>
+              <label for="project">Type of project</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <textarea id="details" formControlName="details" style="min-height: 150px" class="form-control form-control-lg" [class.is-invalid]="details.invalid && details.touched" [class.is-valid]="details.valid" placeholder="Additional Details"></textarea>
+              <label for="details" class="form-label">Additional Details</label>
+              <div class="invalid-feedback">I will try my best to help you with whatever you want</div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="submit" form="conversationForm" [disabled]="conversationForm.invalid" class="btn btn-secondary rounded-pill btn-lg px-5 d-flex align-items-center">
+          <span *ngIf="!isSending"> Tell me</span>
+          <span *ngIf="isSending"> Flying...</span>
+          <i class="reset-icon ms-2" [class.icon-send]="!isSending" [class.icon-sending]="isSending"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

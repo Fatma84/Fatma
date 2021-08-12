@@ -1,0 +1,43 @@
+<section class="testimonials text-center border-bottom">
+  <div class="container">
+    <h2 class="mb-4">Testimonials</h2>
+    <p class="mb-5 fs-4">People I've worked with have said some nice things...</p>
+
+    <div id="t_slider" class="carousel carousel-dark slide" data-bs-ride="carousel" #tSlider>
+      <ol class="carousel-indicators">
+        <ng-container *ngFor="let testimonial of testimonials; let i = index">
+          <li data-bs-target="#t_slider" [class.active]="i === 0" [attr.data-bs-slide-to]="i"></li>
+        </ng-container>
+      </ol>
+      <div class="carousel-inner">
+        <ng-container *ngFor="let testimonial of testimonials; let i = index">
+          <div class="carousel-item" *ngIf="testimonial.user" [class.active]="i === 0">
+            <div class="testimonial">
+              <div class="testimonial-img">
+                <img class="img-fluid" [src]="testimonial.user.photoURL" [alt]="testimonial.user.displayName" />
+              </div>
+              <q class="testimonial-quote">{{ testimonial.message }}</q>
+              <h5 class="testimonial-name">{{ testimonial.user.displayName }}</h5>
+              <p class="testimonial-position">{{ testimonial?.position }}</p>
+              <ng-container *ngIf="!testimonial.approved">
+                <span class="testimonial-badge badge bg-warning text-dark rounded-pill">Waiting for approve</span>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="d-none d-lg-block">
+        <a class="carousel-control-prev" href="#t_slider" role="button" data-bs-slide="prev">
+          <span class="icon-arrow-left" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#t_slider" role="button" data-bs-slide="next">
+          <span class="icon-arrow-right" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <button class="btn btn-lg btn-outline-primary rounded-pill px-5 mt-2" (click)="saySomethingNice()">Say something nice</button>
+  </div>
+</section>

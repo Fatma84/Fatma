@@ -1,0 +1,15 @@
+<ng-container *ngIf="authService.user$ | async as user; else guest">
+  <div class="user-profile">
+    <div class="user-image">
+      <img [src]="user.photoURL" [alt]="user.displayName" [title]="user.displayName" class="img-fluid" />
+    </div>
+    <div>
+      <h3 class="m-0">{{ user.displayName }}</h3>
+      <p class="m-0">{{ user.email }}</p>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #guest>
+  <button class="btn btn-primary login-google" (click)="onLogin()"><i class="icon-google-plus"></i> login with google</button>
+</ng-template>

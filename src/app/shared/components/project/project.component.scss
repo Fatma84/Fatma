@@ -1,0 +1,95 @@
+.project {
+  --project-opacity: 1;
+  --project-color: var(--bs-primary);
+  padding: 60px 35px 30px;
+  text-align: center;
+  box-shadow: var(--nav-shadow);
+  border-radius: 12px;
+  border: 0;
+  max-width: 380px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  &-img {
+    max-width: 210px;
+    margin: 0 auto 20px;
+    height: auto;
+  }
+  &-description {
+    margin-bottom: 20px;
+  }
+  &-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    i {
+      padding-inline-end: 10px;
+    }
+  }
+  i {
+    font-size: 25px;
+  }
+
+  &.project-status-shutdown {
+    .project-status-circle,
+    .project-status {
+      --project-opacity: 0.4;
+      --project-color: var(--bs-red);
+    }
+  }
+
+  &.project-status-development {
+    .project-status-circle,
+    .project-status {
+      --project-opacity: 0.6;
+      --project-color: var(--bs-yellow);
+    }
+  }
+  &.project-status-upcoming {
+    .project-status-circle,
+    .project-status {
+      --project-opacity: 0.8;
+      --project-color: var(--bs-secondary);
+    }
+  }
+
+  .project-status-circle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 50;
+    color: var(--project-color);
+    font-weight: 900;
+  }
+  .project-status {
+    cursor: not-allowed;
+    opacity: var(--project-opacity);
+    color: var(--project-color);
+    &::selection {
+      background-color: var(--project-color);
+    }
+  }
+
+  &-tools {
+    position: absolute;
+    right: 0;
+    top: 0;
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    z-index: 50;
+    padding: 15px 5px;
+    width: calc(100% - 50px);
+    overflow: auto;
+    flex-direction: row-reverse;
+
+    li {
+      i {
+        font-size: 35px;
+      }
+    }
+  }
+}

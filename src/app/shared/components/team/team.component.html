@@ -1,0 +1,49 @@
+<div class="row g-3">
+  <ng-container *ngFor="let person of team">
+    <div class="col-md-6 col-lg-4 col-xl-4" *ngIf="person.user">
+      <div class="person card shadow">
+        <ng-container *ngIf="(authService.user$ | async)?.uid === adminID">
+          <ng-container *ngIf="!person.approved">
+            <button class="btn btn-primary btn-sm" (click)="togglePerson(person.tid || '', true)"><span class="icon-check-mark reset-icon"></span></button>
+          </ng-container>
+          <ng-container *ngIf="person.approved">
+            <button class="btn btn-warning btn-sm" (click)="togglePerson(person.tid || '', false)"><span class="icon-cancel reset-icon"></span></button>
+          </ng-container>
+          <button
+            class="btn btn-danger btn-sm"
+            [disabled]="isDeleting === person.tid"
+            [swal]="{
+              title: 'Are you sure?',
+              html: 'Do you want to delete <strong class=\'text-danger\'>' + person.user.displayName + '</strong>?',
+              confirmButtonText: 'Delete',
+              confirmButtonColor: 'var(--bs-danger)',
+              showCancelButton: true
+            }"
+            (confirm)="deletePerson(person.tid || '')"
+          >
+            <span class="icon-delete reset-icon"></span>
+          </button>
+        </ng-container>
+        <div class="person-img">
+          <div class="img-border">
+            <img [src]="person.user.photoURL" [alt]="person.user.displayName" />
+          </div>
+        </div>
+        <div class="card-body">
+          <ng-container *ngIf="!person.approved">
+            <span class="testimonial-badge badge bg-warning text-dark rounded-pill mb-2">Waiting for approve</span>
+          </ng-container>
+          <h3 class="mb-0 person-title">{{ person.user.displayName }}</h3>
+          <strong class="person-sub-title">{{ person.position }}</strong>
+          <p class="mb-4 mt-3">{{ person.description }}</p>
+        </div>
+        <div class="card-footer">
+          <a [href]="person.social.facebook" target="_blank"><span class="icon-facebook reset-icon text-white"></span></a>
+          <a [href]="person.social.twitter" target="_blank"><span class="icon-twitter reset-icon text-white"></span></a>
+          <a [href]="person.social.instagram" target="_blank"><span class="icon-instagram reset-icon text-white"></span></a>
+          <a [href]="person.social.linkedin" target="_blank"><span class="icon-linkedin reset-icon text-white"></span></a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

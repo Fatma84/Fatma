@@ -1,0 +1,58 @@
+<nav class="navbar navbar-light fixed-top p-0">
+  <div class="navbar-container container-fluid p-0">
+    <div class="wow animate__animated animate__fadeInDown">
+      <a routerLink="/" class="navbar-brand d-block">
+        <img src="assets/imgs/logo/fatma.jpg" alt="omar logo" width="80px" />
+      </a>
+    </div>
+    <div class="navbar-menu wow animate__animated animate__slideInRight">
+      <div class="navbar-action">
+        <button class="call-to-action-btn btn-outline-primary btn" data-bs-toggle="modal" data-bs-target="#sayHelloModal">Say Hello</button>
+        <button class="nav-btn btn" (click)="switchMode()">
+          <i *ngIf="!isDarkMode" class="icon-moon"></i>
+          <i *ngIf="isDarkMode" class="icon-sun"></i>
+        </button>
+
+        <ng-container *ngIf="authService.user$ | async as user; else guest">
+          <div class="dropdown user-dropdown">
+            <button class="btn nav-btn dropdown-toggle" type="button" id="googleDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <img [src]="user.photoURL" [title]="user.displayName | titlecase" [alt]="user.displayName" class="img-fluid rounded-circle" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end text-center p-4 mt-2 animate__animated animate__zoomIn" aria-labelledby="googleDropdown">
+              <li class="pb-3">
+                <img [src]="user.photoURL" [title]="user.displayName | titlecase" [alt]="user.displayName" class="rounded-circle" />
+              </li>
+              <li>
+                <h5>{{ user.displayName | titlecase }}</h5>
+              </li>
+              <li>{{ user.email }}</li>
+              <li>
+                <button class="btn btn-danger mt-3" (click)="signOut()">Signout</button>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <ng-template #guest>
+          <button class="nav-btn btn" (click)="onLogin()">
+            <i class="icon-google-plus"></i>
+          </button>
+        </ng-template>
+
+        <div class="dropdown menu-dropdown">
+          <button class="nav-btn btn dropdown-toggle" type="button" id="nav-list" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="icon-ellipsis"></i>
+            <i class="icon-cancel"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end navbar-list animate__animated animate__zoomIn" aria-labelledby="nav-list">
+            <ng-container *ngFor="let link of links">
+              <li *ngIf="link.isActive">
+                <a [routerLink]="link.url">{{ link.title }}</a>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

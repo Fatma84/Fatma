@@ -1,0 +1,10 @@
+<section class="companies">
+  <div class="container">
+    <h2 class="companies-title mb-5">I'm proud to have collaborated with some awesome companies:</h2>
+    <div class="row no-gutters">
+      <div class="col-md-6 col-lg-4 wow animate__animated animate__fadeIn" *ngFor="let company of companies">
+        <app-company [company]="company"></app-company>
+      </div>
+    </div>
+  </div>
+</section>

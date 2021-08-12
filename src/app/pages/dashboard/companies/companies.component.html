@@ -1,0 +1,41 @@
+<h2 class="text-center mb-4">Companies</h2>
+<form [formGroup]="companiesForm" (ngSubmit)="onSendForm()" class="card p-3 mb-4">
+  <div class="row gy-3">
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="name" type="text" class="form-control" [class.is-invalid]="name.invalid && name.touched" [class.is-valid]="name.valid" formControlName="name" placeholder="Name" />
+        <label for="name">Name</label>
+        <div class="invalid-feedback">Name of the company</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="imageURL" type="text" class="form-control" [class.is-invalid]="imageURL.invalid && imageURL.touched" [class.is-valid]="imageURL.valid" formControlName="imageURL" placeholder="Image Url" />
+        <label for="imageURL">URL Image</label>
+        <div class="invalid-feedback">Enter the URL Image of the company</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="link" type="text" class="form-control" formControlName="link" [class.is-invalid]="link.invalid && link.touched" [class.is-valid]="link.valid" placeholder="link" />
+        <label for="link">link</label>
+        <div class="invalid-feedback">the link of the website of the company</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <button type="submit" [disabled]="companiesForm.invalid" class="btn m-auto btn-secondary rounded-pill btn-lg px-5 d-flex align-items-center">
+        <span *ngIf="!isSending"> Add</span>
+        <span *ngIf="isSending"> Adding...</span>
+        <i class="reset-icon ms-2" [class.icon-send]="!isSending" [class.icon-sending]="isSending"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="row no-gutters">
+  <ng-container *ngFor="let company of companies">
+    <div class="col-6 col-md-4 col-lg-3">
+      <app-company [company]="company"></app-company>
+    </div>
+  </ng-container>
+</div>

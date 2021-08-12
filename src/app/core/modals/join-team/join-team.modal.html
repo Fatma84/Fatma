@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-flex justify-content-between align-items-center border-0">
+          <div>
+            <img src="assets/imgs/logo/omar-logo.png" alt="omar logo" width="80px" />
+          </div>
+          <h2 class="text-center">Join the team!</h2>
+          <button type="button" class="btn icon-cancel" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="teamForm" (ngSubmit)="onSendForm()" class="row say-hello-form" id="teamForm">
+          <div class="col-12">
+            <app-user-account></app-user-account>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="position" type="text" class="form-control" formControlName="position" [class.is-invalid]="position.invalid && position.touched" placeholder="Sr. System Developers, Domain7" />
+              <label for="position">your position (not required) </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <textarea id="description" formControlName="description" style="min-height: 190px" class="form-control form-control-lg" [class.is-invalid]="description.invalid && description.touched" [class.is-valid]="description.valid" placeholder="tell me &#60;3"></textarea>
+              <label for="description" class="form-label"> Descripe your self &#60;3 </label>
+              <div class="invalid-feedback">hey! you have to say it</div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="facebook" type="text" class="form-control" formControlName="facebook" placeholder="Sr. System Developers, Domain7" />
+              <label for="facebook">facebook (not required) </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="instagram" type="text" class="form-control" formControlName="instagram" placeholder="Sr. System Developers, Domain7" />
+              <label for="instagram">instagram (not required) </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="twitter" type="text" class="form-control" formControlName="twitter" placeholder="Sr. System Developers, Domain7" />
+              <label for="twitter">twitter (not required) </label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-floating mb-4">
+              <input id="linkedin" type="text" class="form-control" formControlName="linkedin" placeholder="Sr. System Developers, Domain7" />
+              <label for="linkedin">linkedin (not required) </label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="submit" form="teamForm" [disabled]="teamForm.invalid" class="btn btn-secondary rounded-pill btn-lg px-5 d-flex align-items-center">
+          <span *ngIf="!isSending"> Say It</span>
+          <span *ngIf="isSending"> Flying...</span>
+          <i class="reset-icon ms-2" [class.icon-send]="!isSending" [class.icon-sending]="isSending"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

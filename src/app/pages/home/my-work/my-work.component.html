@@ -1,0 +1,19 @@
+<section class="mywork">
+  <div class="mywork-header bg-primary text-white text-center">
+    <div class="container">
+      <h2 class="mywork-title mb-3 wow animate__animated animate__zoomIn">My Projects</h2>
+      <p class="mywork-description wow animate__animated animate__zoomIn" data-wow-delay=".3s">I'm a bit of a digital product junky. Over the years, I've used hundreds of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to try designing and building my own.</p>
+    </div>
+  </div>
+  <div class="projects">
+    <div class="container">
+      <div class="row gx-2 gy-2">
+        <ng-container *ngFor="let project of projects">
+          <div class="col-xl-4 col-md-6 wow animate__animated animate__fadeIn">
+            <app-project [project]="project"> </app-project>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</section>

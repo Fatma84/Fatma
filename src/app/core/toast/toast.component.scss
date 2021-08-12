@@ -1,0 +1,11 @@
+
+.toast-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2000;
+}
+.toast {
+  max-width: calc(100vw - 20px);
+  opacity: 1!important;
+}

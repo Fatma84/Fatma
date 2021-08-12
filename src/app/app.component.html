@@ -1,0 +1,25 @@
+<ng-container *ngIf="showApp">
+  <div class="main-wrapper">
+    <nav class="navbar-wrapper">
+      <app-navbar></app-navbar>
+    </nav>
+
+    <main class="content-wrapper">
+      <router-outlet></router-outlet>
+      <ng-adsense class="adsbygoogle" style="display: none" data-ad-format="auto" 
+      data-full-width-responsive="true"></ng-adsense>
+    </main>
+
+    <footer class="footer-wrapper">
+      <app-footer></app-footer>
+    </footer>
+  </div>
+
+  <app-toast></app-toast>
+  <!-- begin::Modals -->
+  <modal-conversation></modal-conversation>
+  <modal-say-hello></modal-say-hello>
+  <modal-add-testimonial></modal-add-testimonial>
+  <modal-join-team></modal-join-team>
+  <!-- end::Modals -->
+</ng-container>

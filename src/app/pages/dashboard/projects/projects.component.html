@@ -1,0 +1,85 @@
+<h2 class="text-center mb-4">Projects</h2>
+<form [formGroup]="projectsForm" (ngSubmit)="onSendForm()" class="card p-3 mb-4">
+  <div class="row gy-3">
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="title" type="text" class="form-control" [class.is-invalid]="title.invalid && title.touched" [class.is-valid]="title.valid" formControlName="title" placeholder="Title" />
+        <label for="title">Project Title</label>
+        <div class="invalid-feedback">Title of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="logoURL" type="text" class="form-control" [class.is-invalid]="logoURL.invalid && logoURL.touched" [class.is-valid]="logoURL.valid" formControlName="logoURL" placeholder="Logo URL" />
+        <label for="logoURL">Logo URL</label>
+        <div class="invalid-feedback">Enter the URL logo of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="date" type="date" class="form-control" formControlName="date" [class.is-invalid]="date.invalid && date.touched" [class.is-valid]="date.valid" placeholder="date" />
+        <label for="date">Date</label>
+        <div class="invalid-feedback">the date of the website of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <input id="link" type="link" class="form-control" formControlName="link" [class.is-invalid]="link.invalid && link.touched" [class.is-valid]="link.valid" placeholder="link" />
+        <label for="link">Website Link</label>
+        <div class="invalid-feedback">the link of the website of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <textarea id="description" formControlName="description" style="min-height: 150px" class="form-control form-control-lg" [class.is-invalid]="description.invalid && description.touched" [class.is-valid]="description.valid" placeholder="Description"></textarea>
+        <label for="description">Description</label>
+        <div class="invalid-feedback">the description of the website of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <select multiple class="form-select mutli-select" id="frameworks" formControlName="frameworks">
+          <option *ngFor="let fw of FRAMEWORKS | keyvalue" [value]="fw.value.icon">
+            <i [class]="'reset-icon icon-' + fw.value.icon" [innerHTML]="fw.value.innerHTML"></i>
+            {{ fw.value.title }}
+          </option>
+        </select>
+        <label for="frameworks">Frameworks</label>
+        <div class="invalid-feedback">the status of the website of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <div class="form-floating">
+        <select class="form-select" id="status" formControlName="status">
+          <option value="" selected>Select Status</option>
+          <option value="production">Production</option>
+          <option value="development">Development</option>
+          <option value="upcoming">Upcoming</option>
+          <option value="shutdown">Shutdown</option>
+        </select>
+        <label for="status">Status</label>
+        <div class="invalid-feedback">the status of the website of the project</div>
+      </div>
+      <div class="form-floating mt-3">
+        <input id="priority" type="number" class="form-control" [class.is-invalid]="priority.invalid && priority.touched" [class.is-valid]="priority.valid" formControlName="priority" placeholder="priority" />
+        <label for="priority">priority</label>
+        <div class="invalid-feedback">Enter the priority of the project</div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3">
+      <button type="submit" [disabled]="projectsForm.invalid" class="btn m-auto btn-secondary rounded-pill btn-lg px-5 d-flex align-items-center">
+        <span *ngIf="!isSending"> Add</span>
+        <span *ngIf="isSending"> Adding...</span>
+        <i class="reset-icon ms-2" [class.icon-send]="!isSending" [class.icon-sending]="isSending"></i>
+      </button>
+    </div>
+  </div>
+</form>
+
+<div class="row gy-2 gx-2">
+  <ng-container *ngFor="let project of projects">
+    <div class="col-md-6 col-lg-4">
+      <app-project [project]="project"></app-project>
+    </div>
+  </ng-container>
+</div>

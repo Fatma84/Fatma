@@ -1,0 +1,27 @@
+.mywork {
+  margin-top: -1px;
+  .mywork-header {
+    padding: 50px 15px 50px;
+    @media screen and (max-width: 768px) {
+      padding: 75px 15px 200px;
+    }
+    .mywork-title {
+      color: #fff;
+      font-weight: bold;
+    }
+    .mywork-description {
+      max-width: 700px;
+      margin: auto;
+    }
+  }
+  .projects {
+    // margin-top: -150px;
+    min-height: 450px;
+   padding-bottom: 50px;
+  }
+}
+
+.mywork, .bg-primary {
+  background: linear-gradient(to right, black, #ff8da1);
+}
+

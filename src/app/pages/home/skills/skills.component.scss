@@ -1,0 +1,31 @@
+.skills .row {
+  border-radius: 15px;
+
+  box-shadow: var(--nav-shadow);
+  overflow: hidden;
+  margin-top: -150px;
+
+  .skills-card {
+    text-align: center;
+    background-color: var(--light);
+    padding: 70px 45px;
+
+    @media screen and (max-width: 768px) {
+      padding: 35px 20px;
+    }
+
+    i {
+      font-size: 5rem;
+    }
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    strong {
+      color: var(--bs-primary);
+    }
+  }
+}

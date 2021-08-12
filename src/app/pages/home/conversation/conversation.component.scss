@@ -1,0 +1,25 @@
+.conversation {
+  padding: 50px 15px;
+  @media screen and (max-width: 768px) {
+    padding: 75px 15px;
+  }
+}
+
+.conversation h2 {
+  margin-bottom: 10px !important;
+  font-weight: bold;
+}
+
+.conversation .mb-5 {
+  margin-bottom: 10px !important;
+}
+
+.conversation .px-5 {
+  // padding: 10px 15px !important;
+  color: #ff8da1 !important;
+  border-color: #ff8da1 !important;
+}
+
+.conversation .px-5:hover {
+  background:white ;
+}

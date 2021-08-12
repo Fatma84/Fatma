@@ -1,0 +1,16 @@
+.say-hello-form {
+  max-width: 500px;
+  margin: auto;
+  padding: 30px 15px 15px;
+}
+
+.form-floating > .form-control:focus, 
+.form-floating > .form-control:not(:placeholder-shown) {
+  color: #ff8da1;
+  font-weight: bold;
+}
+
+.btn-secondary:disabled, .btn-secondary.disabled {
+    background: #ff8da1;
+    border-color: #ff8da1;
+}

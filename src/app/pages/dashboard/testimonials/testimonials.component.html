@@ -1,0 +1,30 @@
+<h2 class="text-center mb-4">Testimonials</h2>
+<ul class="list-group">
+  <ng-container *ngFor="let testimonial of testimonials">
+    <li class="list-group-item" *ngIf="testimonial.user">
+      <div class="testimonial-item d-flex">
+        <div class="testimonial-user-details">
+          <div class="testimonial-img">
+            <img [src]="testimonial.user.photoURL" [alt]="testimonial.user.displayName" />
+          </div>
+          <div class="user-details">
+            <span>{{ testimonial.user.displayName }}</span>
+            <span>{{ testimonial.user.phone || "" }}</span>
+          </div>
+          <ng-container *ngIf="!testimonial.approved">
+            <span class="testimonial-badge badge bg-warning text-dark rounded-pill mb-2">Not approved</span>
+            <button class="btn btn-primary btn-sm" (click)="toggleTestimonial(testimonial.tid || '', true)"><span class="icon-check-mark reset-icon"></span></button>
+          </ng-container>
+          <ng-container *ngIf="testimonial.approved">
+            <span class="testimonial-badge badge bg-success text-white rounded-pill mb-2">Approved</span>
+            <button class="btn btn-warning btn-sm" (click)="toggleTestimonial(testimonial.tid || '', false)"><span class="icon-cancel reset-icon"></span></button>
+          </ng-container>
+          <button class="btn btn-danger btn-sm" (click)="deleteTestimonial(testimonial.tid || '')"><span class="icon-delete reset-icon"></span></button>
+        </div>
+        <p class="testimonial-message">
+          {{ testimonial.message }}
+        </p>
+      </div>
+    </li>
+  </ng-container>
+</ul>
